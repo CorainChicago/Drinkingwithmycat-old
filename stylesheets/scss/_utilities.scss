@@ -1,0 +1,31 @@
+// font styles
+$mainFont: Helvetica;
+
+// Font size
+$regularFont: 16px;
+$largeFont: 24px;
+$exlargeFont: 37px;
+
+// color variables
+$normalBackground: black;
+$contrastBackground: white;
+$h1Textcolor: white;
+$contentBordercolor: black;
+
+// mixin for content
+
+@mixin formatContent(){
+    font-size: $regularFont * 1.2;
+    background-color: $contrastBackground;
+    padding: 2%;
+    height: 100%;
+    width: 200px;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    border-color: black;
+    border: solid;
+    float:left;
+    clear: right;
+    position: relative;
+}
