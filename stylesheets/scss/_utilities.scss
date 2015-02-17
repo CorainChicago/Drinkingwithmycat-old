@@ -16,6 +16,7 @@ $contentBordercolor: black;
 
 @mixin formatContent(){
     font-size: $regularFont * 1.2;
+    text-transform: capitalize;
     background-color: $contrastBackground;
     padding: 2%;
     height: 100%;

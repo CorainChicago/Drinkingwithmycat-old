@@ -2,8 +2,11 @@
 
 var siteContent = [
   {
-    "topic": "My Cat",
     "navigation": "home",
+  },
+  {
+    "topic": "My Cat",
+    "navigation": "charlie",
     "displayText1": "Charlie is my cat and sometimes we drink together. Sometimes, we don't. This is a life of a cat and his human (and a few drinks).",
   },
   {
@@ -22,7 +25,7 @@ var siteContent = [
   },
   {
     "topic": "Code?",
-    "navigation": "nondrinking",
+    "navigation": "non-drinking",
     "displayText1": "Wine incoporates history, geography, weather, tradition, and brute luck. ",
     "displayText2": "Are you feeling lucky?",
     "picLink": "startPage",
@@ -35,13 +38,13 @@ var siteContent = [
     "picLink": "startPage",
   },
   {
-    "navigation": "nondrinking",
+    "navigation": "non-drinking",
     "displayText1": "Sleepy Time",
     "displayText2": "donorType",
     "picLink": "startPage",
   },
    {
-    "navigation": "nondrinking",
+    "navigation": "non-drinking",
     "displayText1": "Mint tea is amazing for me.",
     "displayText2": "That's what I like to drink",
     "picLink": "startPage",
@@ -79,11 +82,12 @@ var siteContent = [
     "navigation": "drinking",
     "displayText1": "Beer is normally good.",
   },
+  
  ];
 
 function contentFormat(config){
     config = config || {};
-    this.topic = config.topic|| "Charlie";
+    this.topic = config.topic|| " ";
     this.navigation = config.navigation || "listsofimportance"
     this.displayText1 = config.displayText1 || " This is a cat for you.";
     this.displayText2 = config.displayText2 || " This is a year for me.  ";
@@ -133,7 +137,7 @@ function displayContent1(contentList, item){
   	for (var i = 0; i < contentList.items.length; i++) {
       if(contentList.items[i].navigation.indexOf(item)>-1){
   		var $container = $('<div class = ' + '"'+ contentList.items[i].navigation + '"'+ '>' + contentList.items[i].topic + '</div>');
-      	var $T1display = $('<p>' + contentList.items[i].displayText1  +'</p>');
+      	var $T1display = $('<p>' + contentList.items[i].displayText1  +'</p>' );
       	$container.append($T1display);
       	$content.append($container);
     } 
@@ -147,25 +151,38 @@ var navCounter = 0;
 function navigationDisplayContent(thing){
   $('#' + thing).click(function (event) {
     navCounter = navCounter + 1;
-    if (navCounter == 1){
+    if (navCounter === 1){
+      // Removes any other content on page
+      for(i in navClass){
+          $('.'+navClass[i]).remove();
+          }
       $('body').addClass('navClick');
       displayContent1(contentList, thing); 
-    } else {
+    } else if(thing == "home") {
+          $('.'+navClass[i]).remove();
+          $('body').removeClass('navClick');
+          navCounter = 0
+    } else { 
       $('.' + thing).remove();
       navCounter = 0
     }
 })
 }
 
+// create navClass makes a list of the navigation items without and duplcates and pushed the variables into the array navClass
 var navClass = [];
 
 function createNavClass(contentList){
   for (var i = 0; i < contentList.items.length; i++){
+    if(navClass.indexOf(contentList.items[i].navigation) === -1){
     navClass.push(contentList.items[i].navigation);
+  }
   }
 }  
 
-createNavClass(contentList);  
+createNavClass(contentList); 
+
+// calls the function to display the content when the navigation item is clicked for all navClass
 for(i in navClass){
     navigationDisplayContent(navClass[i]);
 }

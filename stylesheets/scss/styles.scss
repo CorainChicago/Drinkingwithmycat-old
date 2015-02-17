@@ -34,6 +34,7 @@ h2 {
 
 ul {
 	font: $mainFont;
+  text-transform: capitalize;
 	font-size: $regularFont;
 	color: $h1Textcolor;
 	line-height: 1.2em;
