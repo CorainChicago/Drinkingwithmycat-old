@@ -2,7 +2,7 @@
 
 var siteContent = [
   {
-    "navigation": "home",
+    "navigation": "home", 
   },
   {
     "topic": "My Cat",
@@ -82,15 +82,15 @@ var siteContent = [
     "navigation": "drinking",
     "displayText1": "Beer is normally good.",
   },
-  
+
  ];
 
 function contentFormat(config){
     config = config || {};
     this.topic = config.topic|| " ";
-    this.navigation = config.navigation || "listsofimportance"
-    this.displayText1 = config.displayText1 || " This is a cat for you.";
-    this.displayText2 = config.displayText2 || " This is a year for me.  ";
+    this.navigation = config.navigation || "";
+    this.displayText1 = config.displayText1 || "";
+    this.displayText2 = config.displayText2 || "";
     this.pic  = config.picLink || " ";
 }
   
@@ -135,7 +135,7 @@ $('#navItems').append(counter);
 
 function displayContent1(contentList, item){ 
   	for (var i = 0; i < contentList.items.length; i++) {
-      if(contentList.items[i].navigation.indexOf(item)>-1){
+      if(contentList.items[i].navigation.indexOf(item)>-1 && contentList.items[i].navigation != "home"){
   		var $container = $('<div class = ' + '"'+ contentList.items[i].navigation + '"'+ '>' + contentList.items[i].topic + '</div>');
       	var $T1display = $('<p>' + contentList.items[i].displayText1  +'</p>' );
       	$container.append($T1display);
@@ -159,7 +159,7 @@ function navigationDisplayContent(thing){
       $('body').addClass('navClick');
       displayContent1(contentList, thing); 
     } else if(thing == "home") {
-          $('.'+navClass[i]).remove();
+          // $('.'+navClass[i]).remove();
           $('body').removeClass('navClick');
           navCounter = 0
     } else { 
@@ -188,61 +188,3 @@ for(i in navClass){
 }
 
    
-
-
-// This function will make the navigation display the content by 1. adding a class to the body and 2. displaying content only related to nav title 3. removing item once clicked again
-
-// console.log(contentList);
-
-// function navClickaction(ahref){
-//   $(ahref).click(function(){
-//       $('body').addClass(navClick);
-//       for (x in contentList){
-//         var t = contentList[x];
-//         if (t.indexOf(ahref) === -1) {
-//             possibleAnswerslist.push(t);
-// }
-
-//   }
-  
-// }
-
-// $(".charlie").one("click",function(){
-//   for (var i = 0; i < contentList.items.length; i++) {
-//   $('body').addClass(navClick);
-// 	$(".container").toggleClass("here");
-// 	$(".here").append($("<p>Charlie is the most amazing cat in the universe.</p>"));
-// });
-
-// // $(".charlie").click(function(){
-// // 	console.log("Dog2");
-// // 	$(".container").toggleClass("here");
-// // 	displayText();
-// // });
-// // console.log("Cheese");
-
-// $('.drinking').one("click",(function (event) {
-//   event.preventDefault();
-//   displayText(".drinking");
-//   $(".here").append($("<p class='textDrinking'>Charlie drinks out of a martini glass, but he doesn't drink martinis.</p>"));
-// }));
- 
-// // $('.drinking').click(function (event) {
-// //   event.preventDefault();
-// //   displayText();
-// //   });
-
-// $('.non-drinking').one("click",(function (event) {
-//   event.preventDefault();
-//   displayText();
-//   $(".here").append($("<p class='textNon-Drinking'>Drinking can be fun any way you measure it out.  Tea can soothe, allowing conversation to lenger without obscuring the quality.</p>"));
-// }));
- 
-// // $('.non-drinking').click(function (event) {
-// //   event.preventDefault();
-// //   displayText();
-// //   });
-// // $('.home').click(function (event) {
-// //   event.preventDefault();
-// //   console.log('Not going there!');
-// // });
