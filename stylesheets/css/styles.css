@@ -7,7 +7,7 @@ h1 {
   float: top;
   top: 8%;
   left: 5%;
-  width: 100%; }
+  right: 58%; }
 
 h2 {
   font: Helvetica;
@@ -26,9 +26,9 @@ h2 {
 
 ul {
   font: Helvetica;
+  line-height: 1.9em;
   text-transform: capitalize;
   font-size: 16px;
-  color: white;
   line-height: 1.2em;
   position: absolute;
   float: top;
@@ -38,137 +38,174 @@ ul {
   ul a {
     color: white; }
 
+li {
+  padding: 0.7%; }
+
 img {
   width: 100%;
   position: relative;
   margin-top: -10%; }
 
-.navClick img {
-  width: 100%;
-  position: relative;
-  margin-top: -20%; }
-.navClick h1 {
-  font-size: 28.8px;
-  text-shadow: 10px 40px 20% black;
-  position: absolute; }
-.navClick h2 {
-  display: none;
-  position: relative; }
-.navClick .navigation {
-  line-height: 1.8em;
-  font-size: 20px;
-  background-color: black; }
-.navClick #content {
-  position: relative;
-  margin-top: -5%; }
-
 .navigation {
   font-size: 16px;
   color: white;
-  background-color: green;
-  position: fixed;
+  text-transform: capitalize;
   z-index: 100;
   padding-left: 30px;
   padding-right: 30px;
-  top: 30%;
+  top: 20%;
   left: 5%;
   text-align: left; }
 
-#disclaimer {
-  line-height: 2.2em;
-  clear: both;
-  float: bottom;
-  margin-right: 35%;
-  margin-left: 35%;
-  padding-bottom: 3%;
-  padding-top: 5%; }
+div .navTitle {
+  font-size: 32px;
+  text-align: center;
+  text-transform: capitalize;
+  width: 40%;
+  padding: 5%; }
+
+#headerContent {
+  font-size: 24px;
+  text-decoration: underline;
+  text-transform: capitalize;
+  margin-bottom: 5%; }
 
 .home {
   font-size: 19.2px;
+  color: white;
   text-transform: capitalize;
-  background-color: white;
-  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 200px;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-color: black;
-  border: solid;
-  float: left;
+  width: 70%;
   clear: right;
   position: relative; }
+  .home #disclaimer {
+    color: white;
+    background-color: black; }
 
 .drinking {
   font-size: 19.2px;
+  color: white;
   text-transform: capitalize;
-  background-color: white;
-  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 200px;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-color: black;
-  border: solid;
-  float: left;
+  width: 70%;
   clear: right;
   position: relative; }
+  .drinking #disclaimer {
+    color: white;
+    background-color: black; }
 
 .nondrinking {
   font-size: 19.2px;
+  color: white;
   text-transform: capitalize;
-  background-color: white;
-  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 200px;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-color: black;
-  border: solid;
-  float: left;
+  width: 70%;
   clear: right;
   position: relative; }
+  .nondrinking #disclaimer {
+    color: white;
+    background-color: black; }
 
 .charlie {
   font-size: 19.2px;
+  color: white;
   text-transform: capitalize;
-  background-color: white;
-  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 200px;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-color: black;
-  border: solid;
-  float: left;
+  width: 70%;
   clear: right;
   position: relative; }
+  .charlie #disclaimer {
+    color: white;
+    background-color: black; }
 
 .listsofimportance {
   font-size: 19.2px;
+  color: white;
   text-transform: capitalize;
-  background-color: white;
-  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  margin-bottom: 10%;
   height: 100%;
-  width: 200px;
-  margin-right: 5%;
-  margin-left: 5%;
-  margin-bottom: 5%;
-  border-color: black;
-  border: solid;
-  float: left;
+  width: 70%;
   clear: right;
   position: relative; }
+  .listsofimportance #disclaimer {
+    color: white;
+    background-color: black; }
 
 #disclaimer {
   line-height: 2.2em;
   clear: both;
   float: bottom;
-  margin-right: 35%;
-  margin-left: 35%;
+  margin-right: 40%;
+  margin-left: 40%;
+  padding-top: 10%;
   padding-bottom: 5%; }
+
+.navClick img {
+  transition: all 0.5s ease;
+  width: 100%;
+  position: relative;
+  margin-top: -20%;
+  margin-bottom: -15%; }
+.navClick h1 {
+  font-size: 31.2px;
+  color: black;
+  position: fixed;
+  margin: 10%;
+  top: 45%;
+  left: 55%;
+  right: 50%;
+  width: 80%; }
+.navClick h2 {
+  display: none;
+  position: relative; }
+.navClick ul {
+  font: Helvetica;
+  line-height: 1.9em;
+  text-transform: capitalize;
+  font-size: 16px;
+  line-height: 1.2em;
+  position: fixed;
+  float: left;
+  top: 70%;
+  left: 80%;
+  width: 100%; }
+.navClick .navigation {
+  transition: all 0.5s ease;
+  font-size: 16px;
+  color: black;
+  position: fixed;
+  z-index: 100;
+  padding-left: 10%;
+  padding-right: -60%;
+  text-align: left; }
+.navClick #content {
+  position: relative;
+  margin-left: 10%;
+  margin-right: 30%; }
+.navClick .navTitle {
+  margin-top: -33%;
+  padding-right: 25%;
+  padding-left: 25%; }
+  .navClick .navTitle p {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20%;
+    margin-top: 20%;
+    padding-right: 10%;
+    padding-left: 10%; }
 
 /*# sourceMappingURL=styles.css.map */

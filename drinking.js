@@ -10,22 +10,22 @@ var siteContent = [
     "displayText1": "Charlie is my cat and sometimes we drink together. Sometimes, we don't. This is a life of a cat and his human (and a few drinks).",
   },
   {
-    "topic": "Drinking Title",
+    "topic": "Drinking",
     "navigation": "drinking",
     "displayText1": "This is where I talk about drinking, not only alcohol",
     "displayText2": "Surprised by the lack of alcohol?",
     "picLink": "startPage",
   },
     {
-    "topic": "Wine? Why yes",
-    "navigation": "drinking",
-    "displayText1": "Wine incoporates history, geography, weather, tradition, and brute luck. ",
-    "displayText2": "Are you feeling lucky?",
-    "picLink": "startPage",
+    "topic": "Sugary Drinks",
+    "navigation": "nondrinking",
+    "displayText1": "I thought I was an adult.",
+    "displayText2": "Until I decided to not drink booze and drank a bottle of soda (made with cane sugar!) instead -  there's a reason Mom said no.",
+    "picLink": " ",
   },
   {
     "topic": "Code?",
-    "navigation": "non-drinking",
+    "navigation": "nondrinking",
     "displayText1": "Wine incoporates history, geography, weather, tradition, and brute luck. ",
     "displayText2": "Are you feeling lucky?",
     "picLink": "startPage",
@@ -38,19 +38,20 @@ var siteContent = [
     "picLink": "startPage",
   },
   {
-    "navigation": "non-drinking",
+    "navigation": "nondrinking",
     "displayText1": "Sleepy Time",
     "displayText2": "donorType",
     "picLink": "startPage",
   },
    {
-    "navigation": "non-drinking",
+    "topic": "Mint Tea",
+    "navigation": "nondrinking",
     "displayText1": "Mint tea is amazing for me.",
     "displayText2": "That's what I like to drink",
     "picLink": "startPage",
   },
   {
-    "topic": "Lists of Importance",
+    "topic": "listsofimportance",
     "navigation": "listsofimportance",
     "displayText1": "This is where I have a list.",
     "displayText2": "The list is important. ",
@@ -82,12 +83,11 @@ var siteContent = [
     "navigation": "drinking",
     "displayText1": "Beer is normally good.",
   },
-
  ];
 
 function contentFormat(config){
     config = config || {};
-    this.topic = config.topic|| " ";
+    this.topic = config.topic|| "Charlie Bear";
     this.navigation = config.navigation || "";
     this.displayText1 = config.displayText1 || "";
     this.displayText2 = config.displayText2 || "";
@@ -108,7 +108,7 @@ var contentList = new contentLib(siteContent);
 var $content = $('#content');
 var $topheader = $('#topheader');
 
-$('#navigation').append("<ul id='navItems'></ul>");
+$('.navigation').append("<ul id='navItems'></ul>");
 
 // This created the navigation bar li items and takes the duplicates out
 var counter =[];
@@ -119,7 +119,7 @@ function displayNavigation(contentList){
     var y = x.indexOf(contentList.items[i].navigation);
     if (y < 0){ 
       x.push(contentList.items[i].navigation);
-      var container = $('<li ' +'id = '+ contentList.items[i].navigation+'>' + contentList.items[i].navigation + '</a>' + '</li>');
+      var container = $('<li ' +'id = '+ contentList.items[i].navigation+'>' + contentList.items[i].navigation  + '</li>');
       counter.push(container);
         };
       };
@@ -132,37 +132,41 @@ $('#navItems').append(counter);
 
 // Below creates a div with a class for each content topic
 
-
-function displayContent1(contentList, item){ 
+function displayContentTitle(contentList, item){ 
+    $( ".navTitle" ).remove();
+    $content.append('<div class = navTitle >' + '<p>' + item + '</p>');
   	for (var i = 0; i < contentList.items.length; i++) {
       if(contentList.items[i].navigation.indexOf(item)>-1 && contentList.items[i].navigation != "home"){
-  		var $container = $('<div class = ' + '"'+ contentList.items[i].navigation + '"'+ '>' + contentList.items[i].topic + '</div>');
-      	var $T1display = $('<p>' + contentList.items[i].displayText1  +'</p>' );
-      	$container.append($T1display);
-      	$content.append($container);
+  		var $container = $('<div class = ' + '"'+ contentList.items[i].navigation + '"'+ '>' + '<p id=' + "headerContent" +'>' + contentList.items[i].topic + '</p>'+'<p>'+ contentList.items[i].displayText1+'</p>' + '<p>'+ contentList.items[i].displayText2 + '</p>'+'</div>');
+        $content.append($container);
     } 
   }
+};
 
-  };
+
 
 var navCounter = 0;
+var existingContent;
 
+// Displays navigation item
 
 function navigationDisplayContent(thing){
   $('#' + thing).click(function (event) {
-    navCounter = navCounter + 1;
-    if (navCounter === 1){
-      // Removes any other content on page
-      for(i in navClass){
-          $('.'+navClass[i]).remove();
-          }
+  navCounter = navCounter + 1;
+  if (thing == "home") {
+      $('body').removeClass('navClick');
+      navCounter = 0
+      $('.' + existingContent).remove();
+      // Checks if content is already displayed and displays content
+  }else if (navCounter === 1 && thing !== existingContent){
+     
+      for (i in navClass){
+        $('.'+ navClass[i]).remove();
+        existingContent = thing};
       $('body').addClass('navClick');
-      displayContent1(contentList, thing); 
-    } else if(thing == "home") {
-          // $('.'+navClass[i]).remove();
-          $('body').removeClass('navClick');
-          navCounter = 0
-    } else { 
+      navCounter = 0
+      displayContentTitle(contentList, thing); 
+  } else if (navCounter=== 2){ 
       $('.' + thing).remove();
       navCounter = 0
     }
@@ -186,5 +190,8 @@ createNavClass(contentList);
 for(i in navClass){
     navigationDisplayContent(navClass[i]);
 }
+
+
+
 
    

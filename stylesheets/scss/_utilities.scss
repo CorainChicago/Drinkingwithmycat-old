@@ -16,17 +16,23 @@ $contentBordercolor: black;
 
 @mixin formatContent(){
     font-size: $regularFont * 1.2;
+    color: $h1Textcolor;
     text-transform: capitalize;
-    background-color: $contrastBackground;
-    padding: 2%;
+    background-color: rgba(0,0,0,0.6);
+    padding: 5%;
+    margin-bottom: 10%;
     height: 100%;
-    width: 200px;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-bottom: 5%;
-    border-color: black;
-    border: solid;
-    float:left;
+    width: 70%;
+    // margin-right: 5%;
+    // margin-left: 5%;
+    // margin-bottom: 5%;
+    // border-color: black;
+    // border: solid;
+    // float:left;
     clear: right;
     position: relative;
+    #disclaimer{
+        color: white;
+        background-color: black;
+    }
 }
